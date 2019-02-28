@@ -40,5 +40,27 @@ install(TARGETS PriusHybridPlugin gazebo_ros_block_laser
   RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
 
+# prius1
+add_library(Prius1HybridPlugin SHARED plugins/Prius1HybridPlugin.cc)
+target_link_libraries(Prius1HybridPlugin ${GAZEBO_LIBRARIES} ${IGNITION-MSGS_LIBRARIES})
+add_dependencies(Prius1HybridPlugin ${catkin_EXPORTED_TARGETS})
+
+install(TARGETS Prius1HybridPlugin gazebo_ros_block_laser
+  ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
+  LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
+  RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+)
+
+# prius2
+add_library(Prius2HybridPlugin SHARED plugins/Prius2HybridPlugin.cc)
+target_link_libraries(Prius2HybridPlugin ${GAZEBO_LIBRARIES} ${IGNITION-MSGS_LIBRARIES})
+add_dependencies(Prius2HybridPlugin ${catkin_EXPORTED_TARGETS})
+
+install(TARGETS Prius2HybridPlugin gazebo_ros_block_laser
+  ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
+  LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
+  RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+)
+
 install(DIRECTORY models DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION})
 install(DIRECTORY worlds DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION})
